@@ -1,5 +1,5 @@
 // POST /api/event { sid, type, data } -> logs anonymous usage (Vercel logs + optional Google Sheet webhook)
-const TYPES = ['query', 'shortlist', 'rating', 'clickout'];
+const TYPES = ['query', 'shortlist', 'rating', 'clickout', 'error', 'noresult'];
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).end();
   let b = {}; try { b = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {}); } catch (e) {}
