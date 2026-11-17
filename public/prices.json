@@ -1,1 +1,375 @@
-{"checkedAt":null,"items":{}}
+{
+ "checkedAt": "2026-11-17T02:50:24.725Z",
+ "items": {
+  "samsung galaxy s25 256gb": {
+   "q": "Samsung Galaxy S25 256GB",
+   "relaxed": false,
+   "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQggPf-9lLJwRtrfRd-6TATCz7PTQj8txUfThUedppKQQQjvGdh9f-S3AnVu5J_rEdqdDZB3GcJ7EhKSMtXwd-YuM5jVLIRLg",
+   "checkedAt": 1794883793638,
+   "offers": [
+    {
+     "store": "amazon.in",
+     "price": 65000,
+     "title": "Samsung Galaxy S25 5G",
+     "link": "https://www.amazon.in/Samsung-Smartphone-Icyblue-Snapdragon-ProVisual/dp/B0DSBVGKVF",
+     "direct": true,
+     "delivery": "",
+     "cond": "New"
+    },
+    {
+     "store": "Powertech Computer",
+     "price": 72002,
+     "title": "Samsung Galaxy S25 - 256 GB - Icy Blue",
+     "link": "https://powertechcomputer.com/products/samsung-galaxy-s25-s931b-12256",
+     "direct": true,
+     "delivery": "",
+     "cond": "New"
+    },
+    {
+     "store": "Samsung.com",
+     "price": 74999,
+     "title": "Samsung Galaxy S25 5G",
+     "link": "https://www.samsung.com/in/smartphones/galaxy-s25/buy/?store_id=in&modelCode=SM-S931BLBC&srsltid=AYCX9vIKRBhROas_mBGDIxYlnzmxjh5qoobO4Z2UPDCVpAGMgxDVl3fNbCM",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "Sathya Retail",
+     "price": 79989,
+     "title": "Samsung Galaxy S25 - 256 GB - Navy",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Samsung Galaxy S25 256GB&prds=catalogid:12071780186558387497,productid:3803215406400874205,headlineOfferDocid:13717265742681751487,imageDocid:14015016526062215208,rds:PC_7998131059683023653|PROD_PC_7998131059683023653,gpcid:7998131059683023653,mid:576462859883472853,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery by Sat",
+     "cond": "New"
+    },
+    {
+     "store": "Vijay Sales",
+     "price": 79990,
+     "title": "Samsung Galaxy S25 5G",
+     "link": "https://www.vijaysales.com/p/P237290/237287/samsung-galaxy-s25-5g-12gb-ram-256gb-storage-icyblue",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "Tata Neu",
+     "price": 80999,
+     "title": "Samsung Galaxy S25 - 256 GB - Silver Shadow",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Samsung Galaxy S25 256GB&prds=catalogid:12727129557631876848,productid:15266807210876074304,headlineOfferDocid:1124740689800073188,imageDocid:8703673716071570435,rds:PC_7998131059683023653|PROD_PC_7998131059683023653,gpcid:7998131059683023653,mid:576462859883472853,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery by Thu",
+     "cond": "New"
+    }
+   ],
+   "used": []
+  },
+  "iphone 16 128gb": {
+   "q": "iPhone 16 128GB",
+   "relaxed": false,
+   "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSR297g_yFOKqUnVw5fA5XvDMbVC--kHJYazoZHDN2Vfd_fEW0phGD8WKn-fZ470VbKDIun9_ktsaExH9hwMh-mnitEWvAib8Zi5BW6M22nnBWxr1efuNwu6w",
+   "checkedAt": 1794883796659,
+   "offers": [
+    {
+     "store": "Cell Point",
+     "price": 69900,
+     "title": "Apple iPhone 16 128Gb Ultramarine",
+     "link": "https://www.cellpoint.biz/products/details/i-phone16-128gb-1?srsltid=AYCX9vL2vN6jJJQUz5gTgehWXHWJqN0wW_52cD40s2yZg5bWdtu6IDhKfao",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "JioMart Electronics",
+     "price": 69900,
+     "title": "Apple iPhone 16",
+     "link": "https://www.jiomart.com/product/apple-iphone-16-128-gb-ultramarine-mhxt4r-17505495",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "Vijay Sales",
+     "price": 85490,
+     "title": "Apple iPhone 16",
+     "link": "https://www.vijaysales.com/p/P261219/261222/apple-iphone-16-128gb-storage-ultramarine",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "iNvent - Apple Premium Reseller",
+     "price": 88900,
+     "title": "Apple iPhone 16 - 128 GB - White",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=iPhone 16 128GB&prds=catalogid:9015450872818988780,productid:8589273390906643228,headlineOfferDocid:11930624185748270404,imageDocid:2462335464620135621,rds:PC_3689566172349074672|PROD_PC_3689566172349074672,gpcid:1465601687215425854,mid:576462796102771346,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "Apple",
+     "price": 89900,
+     "title": "Apple iPhone 16",
+     "link": "https://www.apple.com/in/shop/go/product/MYEC3HN/A?cid=aos-in-seo-pla-iphone-iphone",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    }
+   ],
+   "used": []
+  },
+  "oneplus 13r": {
+   "q": "OnePlus 13R",
+   "relaxed": false,
+   "img": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS7w-3PTfU-Zu4-Ykib_WkFn2ZzbZF1jyjtTuVbokfz0HTo575OF8KFKxTsW8GJ6a_dcHGJFrpzTaWwzaIk0Omz7hFVrTzuD12Y8adFmyP1YR0ogTAr1S5L",
+   "checkedAt": 1794883806491,
+   "offers": [
+    {
+     "store": "Tradeindia.com",
+     "price": 40000,
+     "title": "Oneplus 13r 12gb/256gb 6.7 White",
+     "link": "https://www.tradeindia.com/products/oneplus-13r-9493230.html",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "EW Shopping",
+     "price": 46799,
+     "title": "Oneplus 13r 5g (512 Gb, 16 Gb Ram)",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=productid:1539621859146238090,headlineOfferDocid:1539621859146238090,imageDocid:2016743980420338285,rds:PC_17339058992543389413|PROD_PC_17339058992543389413,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "OnePlus Official Store",
+     "price": 46999,
+     "title": "OnePlus 13R 5G",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=catalogid:7849397409727283792,productid:11476917745702188816,headlineOfferDocid:3140529676026521547,imageDocid:1161583109263904462,rds:PC_6264243941631134561|PROD_PC_6264243941631134561,gpcid:14703842351916593896,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "ubuy.co.in",
+     "price": 93288,
+     "title": "Oneplus 13R Smarter AI 12GB RAM, 256GB Storage Smartphone Astral Trail",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=productid:10239130137451614412,headlineOfferDocid:10239130137451614412,imageDocid:17807964086819548865,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "New"
+    },
+    {
+     "store": "desertcart.com.sa",
+     "price": 97987,
+     "title": "Oneplus 13r 12gb/256gb 6.7 White",
+     "link": "https://www.desertcart.com.sa/products/874700502-13r-12gb-256gb-titanium-renewed?srsltid=AYCX9vJStlDlkxba-3w5nvehBGAIy_-hEflR39hsmQMX4OdiPb1d_vDB7c8",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    }
+   ],
+   "used": [
+    {
+     "store": "dollykk.in",
+     "price": 37999,
+     "title": "Oneplus 13r 256gb Black",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=catalogid:6737114788288396029,productid:12807544175680639153,headlineOfferDocid:4552718878900141907,imageDocid:7065648520530004343,rds:PC_11128901567194075919|PROD_PC_11128901567194075919,gpcid:11128901567194075919,mid:576462815347211341,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "Used"
+    },
+    {
+     "store": "EMI Snapmint",
+     "price": 42199,
+     "title": "Oneplus 13R 5G Refurbished (EMI: ₹ 2989 / mon)",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=OnePlus 13R&prds=productid:17402470573323625088,headlineOfferDocid:17402470573323625088,imageDocid:5028059640324376986,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "Refurbished"
+    }
+   ]
+  },
+  "cetaphil gentle skin cleanser": {
+   "q": "Cetaphil Gentle Skin Cleanser",
+   "relaxed": false,
+   "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRkLTNJEg5KuMFJo8NzGY8lATl_S7ZAMOCNiLOAKAByj6YIZvIt4onDdnAvntb1xsmloO0siikyUF-N_SWEHIj533foTHELrlK_9JmKrdai",
+   "checkedAt": 1794883812401,
+   "offers": [
+    {
+     "store": "Meesho",
+     "price": 254,
+     "title": "Cetaphil Gentle Skin Cleanser",
+     "link": "https://www.meesho.com/r-s-traders-gentle-skin-hydrating-face-wash-118ml-paraben-free-sulphate-free-gentle-skin-hydrating-cleanser-with-niacinamide-vitamin-b5-for-dry-to-normal-sensitive-skin/p/hqwpmg?utm_source=google&utm_medium=cpc&utm_term=gmc&srsltid=AYCX9vLbQlRmnzr9M-FpcIyJDU7hQEQLUCT_GYKH30_xsX48spBca0spGBk",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "PharmEasy",
+     "price": 347,
+     "title": "Cetaphil Gentle Skin Cleanser",
+     "link": "https://pharmeasy.in/health-care/products/cetaphil-gentle-skin-cleanser---125ml-11064?pincode=560037",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "Apollo247",
+     "price": 367,
+     "title": "Cetaphil Gentle Skin Cleanser 118 ml",
+     "link": "https://www.apollopharmacy.in/otc/cetaphil-gentle-skin-cleanser-125ml?utm_source=gmc&srsltid=AYCX9vJ0H0DkbN9uu8ZNe5NEMMI5H5LYzOMRqQRiphFXryl06P-uQPMp8HY",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    },
+    {
+     "store": "DawaaDost",
+     "price": 368,
+     "title": "Galderma Cetaphil Gentle Skin Cleanser 118ml",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser&prds=productid:18263054222064314613,headlineOfferDocid:18263054222064314613,imageDocid:15353908536745031856,rds:PC_8572412196574812439|PROD_PC_8572412196574812439,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery on ₹850+",
+     "cond": "New"
+    },
+    {
+     "store": "Amazon.in",
+     "price": 371,
+     "title": "Cetaphil Gentle Skin Cleanser",
+     "link": "https://www.amazon.in/Cetaphil-Hydrating-Sulphate-Free-Niacinamide-Sensitive/dp/B01CCGW4OE?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A15APWRK6P7LBV",
+     "direct": true,
+     "delivery": "+ ₹40",
+     "cond": "New"
+    },
+    {
+     "store": "Dermatics India",
+     "price": 379,
+     "title": "Cetaphil Gentle Skin Cleanser 118ml",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser&prds=productid:8187978681612390283,headlineOfferDocid:8187978681612390283,imageDocid:5375554987514423551,rds:PC_4630094256751019677|PROD_PC_4630094256751019677,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery on ₹502+",
+     "cond": "New"
+    },
+    {
+     "store": "Looknstyle",
+     "price": 387,
+     "title": "Cetaphil Gentle Skin Cleanser | For Dry to Normal Skin, Sensitive Skin | Dermatologist Recommended",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser&prds=productid:16675341277515605892,headlineOfferDocid:16675341277515605892,imageDocid:3633335815455514216,rds:PC_4630094256751019677|PROD_PC_4630094256751019677,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "Med at Care",
+     "price": 390,
+     "title": "Cetaphil Gentle Skin Cleanser-118ml",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Cetaphil Gentle Skin Cleanser&prds=productid:16678597772760941201,headlineOfferDocid:16678597772760941201,imageDocid:4803226987908854980,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "New"
+    }
+   ],
+   "used": []
+  },
+  "minimalist 10 niacinamide serum": {
+   "q": "Minimalist 10% Niacinamide Serum",
+   "relaxed": false,
+   "img": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSfLp7JIAwR9tax2TUcb6Bs584OXfCOmUVKh_xwttPvackslAXZMv0hr-QMjGvU86sGo8gdJ9q76BUaKSHJquvXo4_mjEB05wu1ZM8Mt9cBUzdy_CD6m6VNs8Y",
+   "checkedAt": 1794883817465,
+   "offers": [
+    {
+     "store": "Myntra",
+     "price": 423,
+     "title": "Minimalist Set of 2 Niacinamide 10% Face Serum for Regulating Sebum - 10 ml each (Pack) by Myntra",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide Serum&prds=productid:8530277177798567003,headlineOfferDocid:8530277177798567003,imageDocid:7581506211503178535,rds:PC_16253874584215315678|PROD_PC_16253874584215315678,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery by Sun",
+     "cond": "New"
+    },
+    {
+     "store": "Myntra - MNow",
+     "price": 423,
+     "title": "Minimalist Set of Alpha Arbutin 02% & Niacinamide 10% Face Serum - 10 ml each",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide Serum&prds=productid:4295347397305573116,headlineOfferDocid:4295347397305573116,imageDocid:2354836922535521929,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "New"
+    },
+    {
+     "store": "Zepto",
+     "price": 425,
+     "title": "Minimalist Oil Control & Anti-Acne 10% Niacinamide Face Serum",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide Serum&prds=catalogid:14345262628620549469,productid:2173824418636478440,headlineOfferDocid:7998114061765422602,imageDocid:1668344049740396512,gpcid:14733807972774150453,mid:576462914676690284,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery within 1h",
+     "cond": "New"
+    },
+    {
+     "store": "Purplle.com - Purplle Shopping",
+     "price": 473,
+     "title": "Minimalist Niacinamide 10% with Matmarine + Zinc + Acetyl Glucosamine Regulates Sebum & Evens Tone 10 ml X 2 (Pack of 2)",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide Serum&prds=productid:8102588477262278966,headlineOfferDocid:8102588477262278966,imageDocid:5650507241068129977,rds:PC_16253874584215315678|PROD_PC_16253874584215315678,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "Purplle.com",
+     "price": 473,
+     "title": "Minimalist Niacinamide 10% with Matmarine + Zinc + Acetyl Glucosamine Regulates Sebum & Evens Tone 10 ml X 2 (Pack of 2)",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide Serum&prds=productid:1389868188705943459,headlineOfferDocid:1389868188705943459,imageDocid:6493597337588688495,rds:PC_16253874584215315678|PROD_PC_16253874584215315678,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "Free delivery",
+     "cond": "New"
+    },
+    {
+     "store": "White Sugar Beauty World",
+     "price": 525,
+     "title": "Minimalist Niacinamide 10% Face Serum 30ml",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Minimalist 10% Niacinamide Serum&prds=productid:1145423339515846410,headlineOfferDocid:1145423339515846410,imageDocid:5216039162524392040,rds:PC_10498015940641548004|PROD_PC_10498015940641548004,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "New"
+    }
+   ],
+   "used": []
+  },
+  "neutrogena ultra sheer sunscreen": {
+   "q": "Neutrogena Ultra Sheer Sunscreen",
+   "relaxed": false,
+   "img": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSXkHfRfs9sCkCkeyCWFy8qRP3C259-n8X-1qv9syvsZAap5z2x_YdooDSsrOEds_5CBnGmWl695AkwGoZGJGAI1hTt--dEyVAQLXD7z8GCboJEUpaz8l7k",
+   "checkedAt": 1794883822415,
+   "offers": [
+    {
+     "store": "MFI Medical",
+     "price": 1558,
+     "title": "Neutrogena Ultra Sheer Dry-Touch Sunscreen, SPF 30, 3 fl oz",
+     "link": "https://mfimedical.com/products/sunblock-neutrogena-ultra-sheer-spf-30-lotion-3-oz-tube?currency=USD&country=US&variant=42965183660109&utm_source=google&utm_medium=cpc&utm_campaign=Google%20Shopping&stkn=4c99e12ae1b6&srsltid=AYCX9vLPBR6s92K2OontDbE8wb__lotH_zadW0gWnjva2UqcRbRnNY7h26k",
+     "direct": true,
+     "delivery": "+ ₹3,286.35",
+     "cond": "New"
+    },
+    {
+     "store": "ubuy.co.in",
+     "price": 2858,
+     "title": "Neutrogena Ultra Sheer Dry-Touch Sunscreen Lotion, SPF 70 - 5 fl oz",
+     "link": "https://www.google.co.in/search?ibp=oshop&q=Neutrogena Ultra Sheer Sunscreen&prds=catalogid:9585662384195705559,productid:13476286835031461124,headlineOfferDocid:13071624438714681636,imageDocid:4931579782815789029,rds:PC_7220521087754111852|PROD_PC_7220521087754111852,gpcid:7220521087754111852,mid:576462693047868194,pvt:hg&hl=en&gl=in&udm=28",
+     "direct": false,
+     "delivery": "",
+     "cond": "New"
+    },
+    {
+     "store": "desertcart.in",
+     "price": 3009,
+     "title": "Neutrogena Ultra Sheer Dry-Touch Sunscreen SPF",
+     "link": "https://www.desertcart.in/products/277644383-ultra-sheer-dry-touch-sunscreen-spf-30-3-ounces",
+     "direct": true,
+     "delivery": "Free",
+     "cond": "New"
+    }
+   ],
+   "used": []
+  }
+ }
+}
