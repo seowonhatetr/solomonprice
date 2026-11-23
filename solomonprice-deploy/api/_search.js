@@ -1,4 +1,4 @@
-const ACC = /\b(case|cover|protector|tempered|screen guard|charger|cable|spare|replacement|combo|sticker|dummy|decals?|wraps?|holder|stand|mount|strap|lanyard|adapter|tripod|bumper|pouch|sleeve|housing|back panel|sim tray)\b/i;
+const ACC = /\b(case|cover|protector|tempered|screen guard|charger|cable|spare|replacement|combo|sticker|dummy|decals?|wraps?|holder|stand|mount|strap|lanyard|adapter|tripod|bumper|pouch|sleeve|housing|back panel|sim tray|ear ?tips?|ear ?hooks?|ear ?pads?|ear ?cushions?|keychain|key chain|hook|clip|carabiner|shell|silicone|guard|film|wallet|cushion)\b/i;
 const REFURB = /\b(refurbished|renewed|certified|open box|reconditioned)\b/i, USED = /\b(used|pre-?owned|second ?hand|like new)\b/i;
 const norm = q => String(q || '').toLowerCase().replace(/[^a-z0-9+ ]+/g, ' ').replace(/\s+/g, ' ').trim();
 const compact = s => String(s || '').toLowerCase().replace(/[^a-z0-9+]/g, '');
@@ -41,10 +41,14 @@ function cheapestPerStore(list, ratio, floor, max) {
 // Category (from the AI, or guessed from the words) sets a minimum plausible price, so accessories such as skins, cases or
 // stickers that slip through cannot be shown as the "lowest price" of a phone.
 const SKINCARE_WORDS = /\b(cleanser|serum|moisturi[sz]er|sunscreen|lotion|cream|face|facial|spf|gel|toner|wash|acne|sensitive|oily|dry|\d+\s?(ml|gm|g))\b/i;
-const isAcc = t => ACC.test(t) || (/\bskins?\b/i.test(t) && !SKINCARE_WORDS.test(t));
-const FLOOR = { phone: 4000, laptop: 12000, tv: 4000, skincare: 30 };
+const OWN_CASE = /\b((wireless|magsafe|usb-?c|lightning|qi)\s+)*charging\s+case\b|\b(magsafe|usb-?c)\s+case\b/gi;   // "AirPods Pro 3 with MagSafe Charging Case" is the real product
+const FOR_DEVICE = /\b(for|compatible with|fits?)\s+(apple\s+|samsung\s+|google\s+)?(airpods?|iphone|galaxy|pixel|buds)\b/i;   // "... for AirPods Pro 3"
+const isAcc = t => { const x = String(t).replace(OWN_CASE, ' '); return ACC.test(x) || FOR_DEVICE.test(t) || (/\bskins?\b/i.test(t) && !SKINCARE_WORDS.test(t)); };
+const FLOOR = { phone: 4000, laptop: 12000, tv: 4000, earbuds: 1500, skincare: 30 };
+const BIG = ['phone', 'laptop', 'tv', 'earbuds'];   // exact model only, no "close matches"
 const SPEC = /\b\d+\s?(gb|tb)\b|\b[45]g\b|smartphone/i;
 function guessCategory(q) {
+  if (/\b(airpods?|air pods?|earbuds?|earphones?|headphones?|headset|galaxy buds|pixel buds|buds ?\d|wh-?1000x?m?\d?|tws)\b/i.test(q)) return 'earbuds';
   if (/\b(serum|sunscreen|moisturi[sz]er|cleanser|face ?wash|toner|lotion|cream|spf|niacinamide|skincare)\b/i.test(q)) return 'skincare';
   if (/\b(laptop|macbook|thinkpad|notebook|ideapad|vivobook|zenbook|inspiron|pavilion)\b/i.test(q)) return 'laptop';
   if (/\b(tv|television|qled)\b/i.test(q)) return 'tv';
@@ -56,12 +60,14 @@ function guessCategory(q) {
 // (so "S25" never matches S25 FE / S25+ / S25 Ultra / S25 Edge, "iPhone 16" never matches 16e / Plus / Pro, "OnePlus 13" never matches 13R).
 const VARIANT = new Set(['fe', 'plus', 'ultra', 'pro', 'max', 'edge', 'lite', 'mini', 'xl', 'fold', 'flip', 'neo', 'se', 'air', 'e', 'r', 't', 's', 'prime', 'power', 'turbo', 'gt', 'ace']);
 const words = x => String(x || '').toLowerCase().replace(/\+/g, ' plus ').split(/[^a-z0-9]+/).filter(Boolean).flatMap(w => w.match(/[a-z]+|\d+/g) || []);
-function matches(title, q, checkVariants) {
+const st = w => (w.length > 4 && /[a-z]s$/.test(w) ? w.slice(0, -1) : w);   // airpods = airpod
+function matches(title, q, checkVariants, loose) {
   const T = words(title), qset = new Set(words(q));
   for (const w of String(q).toLowerCase().replace(/\+/g, ' plus ').split(/\s+/).filter(Boolean)) {
     const ws = words(w); if (!ws.length) continue;
     let at = -1;
-    for (let i = 0; i + ws.length <= T.length; i++) if (ws.every((x, j) => T[i + j] === x)) { at = i; break; }
+    for (let i = 0; i + ws.length <= T.length; i++) if (ws.every((x, j) => st(T[i + j]) === st(x))) { at = i; break; }
+    if (at < 0 && loose && ws.length > 1 && ws.every(x => T.some(t => st(t) === st(x)))) continue;   // "3pro" vs "Pro 3": same words, other order
     if (at < 0) return false;
     const nxt = T[at + ws.length];
     if (checkVariants && nxt && VARIANT.has(nxt) && !qset.has(nxt)) return false;
@@ -71,13 +77,13 @@ function matches(title, q, checkVariants) {
 // Result: { offers: new listings (cheapest per store), used: used/refurbished listings, img, relaxed, checkedAt }
 function build(items, q, category) {
   if (process.env.DEBUG_STORES) console.log('stores from Google:', [...new Set(items.map(i => i.source))].join(', '));
-  const cat = category || guessCategory(q), floor = FLOOR[cat] || 0, big = ['phone', 'laptop', 'tv'].includes(cat);
+  const cat = category || guessCategory(q), floor = FLOOR[cat] || 0, big = BIG.includes(cat);
   const wantsAcc = /case|cover|charger|cable|protector/i.test(q), toks = norm(q).split(' ').filter(Boolean);
   let ok = items.filter(i => typeof i.extracted_price === 'number' && i.extracted_price >= Math.max(1, floor) && i.source && !IMPORTER.test(String(i.source)) && !FOREIGN.test(String(i.title || '')) && (wantsAcc || !isAcc(String(i.title || ''))));
   if (cat === 'phone' && ok.some(i => SPEC.test(String(i.title)))) ok = ok.filter(i => SPEC.test(String(i.title)));   // real phones name storage or 5G
   const cv = cat !== 'skincare', rest = String(q).trim().split(/\s+/).slice(1).join(' ');
-  let strict = ok.filter(i => matches(i.title, q, cv));
-  if (!strict.length && rest) strict = ok.filter(i => matches(i.title, rest, cv));   // some titles leave out the brand
+  let strict = ok.filter(i => matches(i.title, q, cv, cat === 'earbuds'));
+  if (!strict.length && rest) strict = ok.filter(i => matches(i.title, rest, cv, cat === 'earbuds'));   // some titles leave out the brand
   const relaxed = !strict.length && ok.length > 0 && !big;   // phones, laptops and TVs: no "close match", only the exact model
   if (strict.length) ok = strict; else if (big) ok = [];
   let isNew = ok.filter(i => cond(i) === 'New'); const old = ok.filter(i => cond(i) !== 'New');
@@ -130,10 +136,10 @@ async function fetchAmazon(q) {
   return (await r.json()).organic_results || [];
 }
 function pickAmazon(items, q, category, list) {
-  const cat = category || guessCategory(q), floor = FLOOR[cat] || 0, big = ['phone', 'laptop', 'tv'].includes(cat), cv = cat !== 'skincare';
+  const cat = category || guessCategory(q), floor = FLOOR[cat] || 0, big = BIG.includes(cat), cv = cat !== 'skincare';
   const wantsAcc = /case|cover|charger|cable|protector/i.test(q), md = median(list.map(o => ({ extracted_price: o.price })));
   const ok = items.filter(i => !i.sponsored && typeof i.extracted_price === 'number' && i.extracted_price >= Math.max(1, floor) && isDirect(String(i.link || ''))
-    && !FOREIGN.test(String(i.title || '')) && (wantsAcc || !isAcc(String(i.title || ''))) && matches(i.title, q, cv) && (!big || !md || (i.extracted_price >= md * 0.4 && i.extracted_price <= md * 2.5)));
+    && !FOREIGN.test(String(i.title || '')) && (wantsAcc || !isAcc(String(i.title || ''))) && matches(i.title, q, cv, cat === 'earbuds') && (!big || !md || (i.extracted_price >= md * 0.4 && i.extracted_price <= md * 2.5)));
   if (cat === 'phone' && ok.some(i => SPEC.test(String(i.title)))) ok.splice(0, ok.length, ...ok.filter(i => SPEC.test(String(i.title))));
   const best = ok.sort((a, b) => a.extracted_price - b.extracted_price)[0];
   return best ? { store: 'Amazon.in', price: Math.round(best.extracted_price), title: String(best.title).slice(0, 120), link: best.link, direct: true, token: '', delivery: '', cond: 'New' } : null;
