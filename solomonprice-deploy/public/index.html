@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>SolomonPrice India – Find the lowest price</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#111114;--mute:#85858f;--line:#ececf0;--acc:#2347e8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0c0c0f;--ink:#f2f2f5;--mute:#8d8d98;--line:#25252c;--acc:#8ea2ff}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}button{cursor:pointer}:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.wrap{max-width:720px;margin:0 auto;padding:0 22px}
+.logo{font-weight:600;font-size:16px;letter-spacing:-.01em;padding:28px 0 0}.logo img{display:block;height:72px;width:auto}
+h1{font-size:clamp(30px,6vw,44px);line-height:1.08;letter-spacing:-.035em;font-weight:600;margin:72px 0 14px;max-width:13em}
+.lead{color:var(--mute);margin:0 0 36px;max-width:34em}
+.sbox{display:flex;gap:10px;align-items:center;border-bottom:1.5px solid var(--ink);padding-bottom:6px}.sbox:focus-within{border-color:var(--acc)}
+.sbox input{flex:1;min-width:0;border:0;background:none;padding:10px 0;font-size:20px;letter-spacing:-.01em}.sbox input::placeholder{color:var(--mute)}.sbox input:focus-visible{outline:none}
+.go{background:var(--ink);color:var(--bg);border:0;border-radius:999px;padding:9px 22px;font-weight:600;font-size:14px}.go:hover{opacity:.88}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0}.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:5px 13px;font-size:13px;color:var(--mute)}.chip:hover{color:var(--ink);border-color:var(--ink)}
+#st{margin:44px 0 18px;color:var(--mute);font-size:13.5px}#st b{color:var(--ink);font-weight:600}
+.card{display:grid;grid-template-columns:96px 1fr;gap:6px 22px;padding:26px 0 8px;border-top:1px solid var(--line)}
+.im{grid-row:1/3}.card>div:nth-child(3){grid-column:1/-1}
+@media(min-width:640px){.card{grid-template-columns:128px 1fr}.card>div:nth-child(3){grid-column:2}}
+.im img,.ph{width:100%;aspect-ratio:1;object-fit:contain;border-radius:12px;background:#fff;border:1px solid var(--line)}.ph{display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:600;color:#b4b4bc}
+h2{font-size:18px;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin:0 0 6px}.sub{color:var(--mute);font-size:13px}
+.lp{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px}
+.lp span,.rt span{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.lp strong{font-size:40px;font-weight:600;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
+.buy{display:block;text-align:center;background:var(--ink);color:var(--bg);padding:14px;border-radius:12px;margin:14px 0 26px;font-weight:600;text-decoration:none}.buy:hover{opacity:.88}
+.rt{display:flex;justify-content:space-between;padding-bottom:8px}
+.sr{display:grid;grid-template-columns:1fr auto;gap:0 16px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}
+.sn{font-weight:600}.tt{color:var(--mute);font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pr{grid-column:2;grid-row:1/3;font-weight:600;font-size:16px;color:var(--ink);text-decoration:none;font-variant-numeric:tabular-nums}.pr.lo{color:var(--acc)}.pr:hover{text-decoration:underline}
+.empty{padding:48px 0;color:var(--mute)}
+.rate{margin:28px 0 0;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px;color:var(--mute)}
+.rate button{border:1px solid var(--line);background:none;border-radius:999px;width:34px;height:34px;padding:0}.rate button:hover{border-color:var(--ink)}
+footer{color:var(--mute);font-size:12px;line-height:1.65;padding:48px 0 72px;margin-top:56px;border-top:1px solid var(--line);max-width:44em}
+.sec{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.none{color:var(--mute);font-size:13.5px;padding:10px 0 4px}
+.used-sec{margin-top:44px;padding-top:30px;border-top:1px solid var(--line)}
+.buy.alt{background:none;color:var(--ink);border:1px solid var(--ink)}
+.note{color:var(--mute);font-size:12.5px;margin:18px 0 0}
+.tier{display:grid;grid-template-columns:auto 1fr auto auto;gap:12px;align-items:center;padding:13px 0;border-top:1px solid var(--line)}
+.tl{font-size:12px;font-weight:600;border:1px solid var(--acc);color:var(--acc);border-radius:4px;padding:1px 9px;min-width:92px;text-align:center}
+.tp{font-size:19px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;color:var(--acc)}
+.plus{border:1px solid var(--line);background:none;width:28px;height:28px;border-radius:4px;font-size:16px;line-height:1;padding:0}.plus:hover{border-color:var(--ink)}
+.tc{color:var(--mute);font-size:13px;min-width:70px;text-align:right}
+.tlist{padding:0 0 10px 0}.tlist[hidden]{display:none}.tlist .sr{padding:11px 0 11px 12px;border-top:1px dashed var(--line)}
+.lt{font-style:normal;font-size:10.5px;font-weight:600;color:var(--acc);border:1px solid var(--acc);border-radius:4px;padding:0 5px;margin-left:6px}
+.na{color:var(--mute)}
+</style>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zeeey3rf9e");
+</script>
+</head>
+<body>
+<div class="wrap">
+<div class="logo"><picture><source srcset="/logo-dark.svg" media="(prefers-color-scheme: dark)"><img src="/logo.svg" alt="SolomonPrice" width="271" height="72"></picture></div>
+<h1>Type a product. We find where it is cheapest.</h1>
+<p class="lead">Search any phone or product name. SolomonPrice compares stores in India and sends you to the one with the lowest price.</p>
+<div class="sbox"><input id="q" aria-label="Product name" placeholder="e.g. Samsung Galaxy S25, Cetaphil cleanser" autocomplete="off"><button class="go" id="go">Search</button></div>
+<div class="chips" id="ex"></div>
+<div id="st" aria-live="polite"></div>
+<div id="res"></div>
+<footer>Prices come from Google Shopping at the time shown and can differ at the store, so check the final price and the exact model (storage, colour) there. SolomonPrice may earn a commission when you buy through its links; this never changes the order of the results. Your search text is processed by an AI model (Google Gemini free tier, which may use it to improve Google products) to fix typos, and anonymous usage data is logged for this class project, including page interactions and session recordings collected by Microsoft Clarity. Please do not type personal information. Product photos are thumbnails from Google Shopping.</footer>
+</div>
+<script>
+const $=s=>document.querySelector(s),inr=n=>'₹'+n.toLocaleString('en-IN');
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=q=>q.toLowerCase().replace(/[^a-z0-9+ ]+/g,' ').replace(/\s+/g,' ').trim();
+const ok=u=>typeof u==='string'&&u.startsWith('https://');
+const SID=(()=>{try{let s=sessionStorage.bw_sid;if(!s){s=Math.random().toString(36).slice(2)+Date.now().toString(36);sessionStorage.bw_sid=s}return s}catch(e){return 'x'}})();
+const cl=(t,d)=>{try{if(typeof clarity!=='function')return;d=d||{};clarity('event',t);
+ if(t==='shortlist'){clarity('set','new_results',String(d.new));clarity('set','ai_fixed',d.ai?'yes':'no');clarity('set','relaxed',d.relaxed?'yes':'no')}
+ else if(t==='clickout')clarity('set','clickout_store',String(d.store||'unknown'));
+ else if(t==='rating')clarity('set','rating',String(d.v));
+ else if(t==='noresult')clarity('set','no_result','yes');
+ else if(t==='error')clarity('set','error',String(d.code||'unknown'))}catch(e){}};
+const ev=(t,d)=>{try{navigator.sendBeacon('/api/event',new Blob([JSON.stringify({sid:SID,type:t,data:d})],{type:'application/json'}))}catch(e){}cl(t,d)};
+const mem=(k,v)=>{try{if(v===undefined)return JSON.parse(sessionStorage.getItem('sp2:'+k));sessionStorage.setItem('sp2:'+k,JSON.stringify(v))}catch(e){return null}};
+let snap={items:{}};
+const DEF=['Samsung Galaxy S25 256GB','iPhone 16 128GB','OnePlus 13R','Cetaphil Gentle Skin Cleanser'];
+function chips(){const l=Object.values(snap.items||{}).filter(x=>x.q&&x.offers&&x.offers.length).map(x=>x.q);
+ $('#ex').innerHTML=(l.length?l:DEF).map(t=>`<button class="chip" data-q="${esc(t)}">${esc(t)}</button>`).join('')}
+fetch('/prices.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{snap=d||snap}).catch(()=>{}).finally(chips);
+const when=t=>new Date(t).toLocaleString('en-IN',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+function show(d,q,quiet,final){   // quiet = redraw after the seller links arrive: keep open/closed lists and the rating, do not log again
+ const was=quiet?[...document.querySelectorAll('.tlist')].map(e=>[e.id,e.hidden]):[],rated=quiet&&/^Thanks/.test(($('.rate')||{}).textContent||'');
+ const pri=n=>{n=String(n||'').trim();return /^amazon|amazon\.in/i.test(n)?2:/^flipkart|flipkart\.com/i.test(n)?1:0},srt=l=>(l||[]).slice().sort((a,b)=>a.price-b.price||pri(b.store)-pri(a.store)),mn=l=>l.length?Math.min(...l.map(x=>x.price)):0,nw=srt(d.offers),us=srt(d.used),rf=us.filter(x=>x.cond==='Refurbished'),ud=us.filter(x=>x.cond!=='Refurbished');
+ if(!nw.length&&!us.length){$('#st').textContent='';if(!quiet)ev('noresult',{});$('#res').innerHTML=`<div class="empty">No prices found for “${esc(q)}”.<br>Try the full model name, for example “Samsung Galaxy S25 256GB”.</div>`;return}
+ const first=nw[0]||us[0],fixed=d.query&&norm(d.query)!==norm(q);
+ $('#st').innerHTML=(fixed?`Showing results for <b>${esc(d.query)}</b> (AI fixed your spelling). `:'')+(d.relaxed?'The exact model was not found, so these are the closest matches. ':'');
+ const img=ok(d.img)?`<img src="${esc(d.img)}" alt="" loading="lazy" referrerpolicy="no-referrer">`:`<div class="ph">${esc((d.query||q)[0]||'?')}</div>`;
+ const href=x=>ok(x.link)?esc(x.link):'https://www.google.com/search?tbm=shop&gl=in&q='+encodeURIComponent(x.title||q);
+ const rows=(list,showCond)=>list.map((x,j)=>`<div class="sr"><span class="sn">${esc(x.store)}${x.price===mn(list)&&list.findIndex(y=>y.price===x.price)===j?' <i class="lt">Lowest</i>':''}</span><span class="tt" title="${esc(x.title)}">${showCond&&x.cond?esc(x.cond)+' · ':''}${esc(x.title)}${x.delivery?' · '+esc(x.delivery):''}${x.direct?'':' · via Google'}</span><a class="pr${x.price===mn(list)&&list.findIndex(y=>y.price===x.price)===j?' lo':''}" data-s="${esc(x.store)}" data-p="${x.price}" href="${href(x)}" target="_blank" rel="noopener sponsored">${inr(x.price)}</a></div>`).join('');
+ const tier=(label,list,key,open)=>`<div class="tier"><span class="tl">${label}</span><strong class="tp">${list.length?inr(mn(list)):'—'}</strong>${list.length?`<button class="plus" data-t="${key}" aria-label="Show stores for ${label}">${open?'−':'+'}</button>`:'<span></span>'}<span class="tc">${list.length?list.length+' store'+(list.length>1?'s':''):'none found'}</span></div>
+  <div class="tlist" id="t-${key}"${open?'':' hidden'}>${rows(list,false)}${key==='new'?fb:''}${key!=='new'&&list.length?'<div class="note">Condition and warranty vary by seller. Check the grade, the warranty and, for phones, the battery health before you buy.</div>':''}</div>`;
+ const lo=nw[0],pend=d.linked===false&&!final&&!!lo&&!lo.direct;   // seller link still being fetched: the button waits a moment instead of opening Google
+ // Amazon / Flipkart are always shown: with a price when found, otherwise a plain "check price" link (no price is invented, not counted as lowest)
+ const miss=(nw.length&&(final||d.linked!==false))?[[2,'Amazon.in','https://www.amazon.in/s?k='],[1,'Flipkart','https://www.flipkart.com/search?q=']].filter(m=>!nw.some(x=>pri(x.store)===m[0])):[],
+  fb=miss.map(m=>`<div class="sr"><span class="sn">${m[1]}</span><span class="tt">Price not found in this search</span><a class="pr" data-s="${m[1]}" data-p="0" href="${m[2]+encodeURIComponent(d.query||q)}" target="_blank" rel="noopener sponsored">Check price</a></div>`).join('');
+ const isMin=lo&&lo.price===mn(nw),top=lo?`<div class="lp"><span>${isMin?'Lowest price':pri(lo.store)?'Top pick':'Price'} · New</span><strong>${inr(lo.price)}</strong></div>
+  <a class="buy" data-s="${esc(lo.store)}" data-p="${lo.price}" href="${href(lo)}" target="_blank" rel="noopener sponsored"${pend?' style="opacity:.55;pointer-events:none"':''}>${pend?'Getting the direct seller link…':(isMin?'Buy at lowest price':'Buy now')+' · '+esc(lo.store)+(lo.direct?'':' (via Google)')}</a>${!pend&&!lo.direct&&d.linkNote==='limit'?'<div class="none">Direct seller links are paused because today\'s free search allowance is used up. Try again tomorrow.</div>':''}`
+  :`<div class="lp"><span>Lowest price · New</span><strong class="na">—</strong></div><div class="none">No new listings found for this search. See used and refurbished options below.</div>`;
+ $('#res').innerHTML=`<article class="card"><div class="im">${img}</div>
+ <div><h2>${esc(first.title||d.query||q)}</h2><div class="sub">Cheapest listing found. Other variants (storage, colour) may cost differently, so check the title.</div></div>
+ <div>${top}<div class="rt"><span>Prices by condition</span><span>checked ${esc(when(d.checkedAt))}</span></div>
+ ${tier('New',nw,'new',!!nw.length)}${tier('Refurbished',rf,'refurb',!nw.length&&!!rf.length)}${tier('Used',ud,'used',!nw.length&&!rf.length&&!!ud.length)}</div></article>
+ <div class="rate"><span>Was this result useful?</span>${[1,2,3,4,5].map(n=>`<button data-r="${n}">${n}</button>`).join('')}</div>`;
+ if(quiet){was.forEach(([id,h])=>{const el=$('#'+id),b=document.querySelector('[data-t="'+id.slice(2)+'"]');if(el){el.hidden=h;if(b)b.textContent=h?'+':'−'}});if(rated&&$('.rate'))$('.rate').innerHTML='Thanks for the feedback!'}
+ else ev('shortlist',{q:q.slice(0,100),query:d.query||'',new:nw.length,refurb:rf.length,used:ud.length,lowest:lo?lo.price:null,ai:!!d.ai,relaxed:!!d.relaxed});
+}
+let run=0;   // newest search; older answers that arrive late are ignored
+async function upgrade(q,k,my,d0){   // 2nd request: swap the Google links for the sellers' own links
+ try{const r=await fetch('/api/search',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({q,links:true})});
+  if(!r.ok){if(my===run&&d0)show(d0,q,true,true);return}const d=await r.json();mem(k,d);if(my===run)show(d,q,true,true)}catch(e){if(my===run&&d0)show(d0,q,true,true)}
+}
+async function search(q){
+ q=(q||'').trim();if(q.length<2)return;$('#q').value=q;ev('query',{text:q.slice(0,100)});
+ const my=++run;$('#st').textContent='Searching stores…';$('#res').innerHTML='';
+ setTimeout(()=>{if(my===run&&!$('#res').innerHTML)$('#st').textContent='Still searching… a new search can take a few seconds. The example searches above are instant.'},4000);
+ const k=norm(q);let d=(snap.items&&snap.items[k])||mem(k);   // examples and searches already made in this visit show instantly
+ if(!d){
+  const fail=m=>{$('#st').textContent='';$('#res').innerHTML=`<div class="empty">${m}</div>`};
+  let r;try{r=await fetch('/api/search',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({q})})}catch(e){return fail('Could not reach the server. Please check your connection and try again.')}
+  try{d=await r.json()}catch(e){return fail('The search service was not found on the server (the server files may need updating).')}
+  if(r.ok)mem(k,d);
+  if(my!==run)return;
+  if(!r.ok){ev('error',{code:(d&&d.error)||'unknown'});const m={limit:'The free daily search limit has been reached. Please try again tomorrow, or tap one of the example searches.',busy:'Too many searches. Please wait a few minutes.',not_configured:'Search is not set up yet: the SerpApi key is missing on the server.',upstream:'The price source did not respond (it may be out of free searches). Please try again later.'};return fail(m[d.error]||'Search is unavailable right now. Please try again later.')}
+ }
+ if(my!==run)return;
+ show(d,q,false,d.linked!==false);
+ if(d.linked===false&&(d.offers||[]).length)upgrade(q,k,my,d);
+}
+$('#go').onclick=()=>search($('#q').value);$('#q').addEventListener('keydown',e=>{if(e.key==='Enter')search($('#q').value)});
+document.addEventListener('click',e=>{const t=e.target;
+ if(t.dataset.q){try{if(typeof clarity==='function')clarity('event','example_click')}catch(e){}search(t.dataset.q)}
+ if(t.dataset.t){const el=$('#t-'+t.dataset.t);if(el){el.hidden=!el.hidden;t.textContent=el.hidden?'+':'−'}}
+ if(t.dataset.r){ev('rating',{v:+t.dataset.r});t.parentNode.innerHTML='Thanks for the feedback!'}
+ const a=t.closest&&t.closest('a[data-s]');if(a)ev('clickout',{store:a.dataset.s,price:+a.dataset.p,q:$('#q').value.slice(0,100)})});
+</script>
+</body>
+</html>

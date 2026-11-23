@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 200 200"><rect width="200" height="200" rx="44" fill="#FFFFFF"/><g transform="translate(100 100) scale(.9) translate(-100 -102)">
+  <path d="M54 64 L54 36 L77 52 L100 26 L123 52 L146 36 L146 64" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#B8860B" stroke-width="3.8"/>
+  <path d="M54 64 H146 V76 H54 Z" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#B8860B" stroke-width="3.8"/>
+  <circle cx="100" cy="19" r="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#B8860B" stroke-width="2.6"/>
+  <circle cx="54" cy="30" r="3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#B8860B" stroke-width="2.6"/>
+  <circle cx="146" cy="30" r="3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#B8860B" stroke-width="2.6"/>
+  <circle cx="80" cy="70" r="1.7" fill="#B8860B"/>
+  <circle cx="100" cy="70" r="1.7" fill="#B8860B"/>
+  <circle cx="120" cy="70" r="1.7" fill="#B8860B"/>
+  <path d="M60 80 C52 104 52 130 60 150" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#14213D" stroke-width="3.4"/>
+  <path d="M140 80 C148 104 148 130 140 150" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#14213D" stroke-width="3.4"/>
+  <path d="M62 76 V110 C62 148 78 186 100 186 C122 186 138 148 138 110 V76" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#14213D" stroke-width="3.8"/>
+  <path d="M72 91 Q82 85 92 90 M108 90 Q118 85 128 91" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#14213D" stroke-width="3.4"/>
+  <circle cx="82" cy="100" r="3.6" fill="#14213D"/><circle cx="118" cy="100" r="3.6" fill="#14213D"/>
+  <path d="M101 98 C100 106 98 110 95 112 C98 116 104 116 107 112" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#14213D" stroke-width="3.2"/>
+  <path d="M100 121 C92 118 80 121 73 129 C83 128 93 127 100 125 Z M100 121 C108 118 120 121 127 129 C117 128 107 127 100 125 Z" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#14213D" stroke-width="3.2"/>
+  <path d="M73 146 C82 154 92 150 100 158 C108 150 118 154 127 146" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#14213D" stroke-width="3"/>
+  <path d="M82 164 C90 171 96 168 100 174 C104 168 110 171 118 164" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="#14213D" stroke-width="3"/>
+</g></svg>
