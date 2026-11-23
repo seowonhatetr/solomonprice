@@ -9,7 +9,7 @@
 5. "Buy at lowest price" 버튼이 **판매처 사이트의 상품 페이지**로 바로 연결된다. Google 쇼핑의 목록 링크는 대부분 Google을 거치기 때문에, 가장 싼 새 제품의 "immersive product" 페이지를 한 번 더 조회해 각 판매처의 자체 링크를 찾고, 판매처 이름으로 맞춰 바꾼다. (SerpApi 크레딧을 검색당 1개 더 쓴다.)
    - 판매처 링크를 못 찾은 줄에는 `via Google`이 표시되고 Google 상품 페이지로 연결된다. 그 페이지에서 `Visit site`를 누르면 판매처로 간다.
    - 중고/리퍼비시는 크레딧을 아끼려고 판매처 링크를 따로 찾지 않는다. 중고 줄은 모두 `via Google`이다.
-- 예시 검색어(`scripts/featured.json`)는 GitHub Actions가 매주 월요일에 미리 조회해 `public/prices.json`에 저장한다. 서버는 AI나 SerpApi를 부르기 전에 이 파일부터 확인하므로, 그 검색은 즉시 나오고 크레딧을 쓰지 않는다.
+- 예시 검색어(`scripts/featured.json`)는 GitHub Actions가 2주마다(매월 1일·15일) 미리 조회해 `public/prices.json`에 저장한다. 서버는 AI나 SerpApi를 부르기 전에 이 파일부터 확인하므로, 그 검색은 즉시 나오고 크레딧을 쓰지 않는다.
 - 결과 먼저 보여주기: 새 검색은 가격 목록을 먼저 보여주고(SerpApi 1회), 판매처 직접 링크는 두 번째 요청(`links:true`)으로 가져와 화면에서 바꿔 끼운다. 그동안 버튼은 `via Google` 링크로 이미 눌러도 된다. 서버가 재시작돼 첫 검색 기록이 없으면 두 번째 요청은 `expired`로 끝나고 Google 링크가 그대로 남는다.
 - 속도와 크레딧 절약: 같은 검색어는 서버에서 24시간 캐시하고, 브라우저에서도 한 번 방문 안에서는 다시 조회하지 않는다. 입력이 이미 깔끔하면(영문/숫자와 띄어쓰기) AI 오타 교정을 건너뛴다. 같은 검색이 동시에 들어오면 한 번만 조회한다.
 
@@ -49,3 +49,7 @@ function doPost(e){const r=JSON.parse(e.postData.contents);
 SpreadsheetApp.getActiveSheet().appendRow([r.t,r.sid,r.type,r.data]);
 return ContentService.createTextOutput('ok')}
 ```
+
+
+## Amazon.in 조회
+Google Shopping(인도)에 Amazon이 빠지는 경우가 많아서, 결과에 Amazon이 없을 때만 SerpApi `amazon` 엔진(`amazon_domain=amazon.in`)으로 1크레딧을 더 써서 조회한다(2단계에서 링크 확인과 동시에 실행). 끄려면 `AMAZON_LOOKUP=off`. 정렬은 가격순, 같은 가격이면 Amazon → Flipkart 순이며 Amazon·Flipkart는 목록에 항상 포함된다. 어떤 스토어가 오는지 보려면 `DEBUG_STORES=1`.

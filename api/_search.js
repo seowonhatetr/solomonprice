@@ -16,14 +16,22 @@ async function fetchShopping(q) {
 }
 const GOOGLE = /(^|\.)(google\.[a-z.]+|googleadservices\.com|gstatic\.com|googleusercontent\.com|googlesyndication\.com|doubleclick\.net)$/;
 const isDirect = l => { try { return new URL(l).protocol === 'https:' && !GOOGLE.test(new URL(l).hostname); } catch (e) { return false; } };
-const amz = n => /^amazon/i.test(String(n || '')) ? 1 : 0;   // on equal prices Amazon is listed first
+// Store priority: Amazon and Flipkart are listed before every other store; between them, the lower price first and Amazon on a tie.
+const pri = n => /^amazon/i.test(String(n || '')) ? 2 : /^flipkart/i.test(String(n || '')) ? 1 : 0;
+const rank = (a, b) => ((a.price ?? a.extracted_price) - (b.price ?? b.extracted_price)) || (pri(b.store || b.source) - pri(a.store || a.source));
+// Sorted by price (Amazon first on a tie), but the cheapest Amazon and Flipkart listings are always kept in the list when they exist.
+const keepTop = (sorted, max, nameOf) => {
+  const top = sorted.slice(0, max);
+  [2, 1].forEach(p => { if (!top.some(x => pri(nameOf(x)) === p)) { const x = sorted.find(y => pri(nameOf(y)) === p); if (x) top.push(x); } });
+  return top.sort(rank);
+};
 const median = a => { const p = a.map(x => x.extracted_price).sort((x, y) => x - y); return p[Math.floor(p.length / 2)] || 0; };
 function cheapestPerStore(list, ratio, floor, max) {
-  if (list.length > 2) { const m = median(list); list = list.filter(i => i.extracted_price >= Math.max(m * ratio, floor || 0)); }   // drop prices far below the median
+  if (list.length > 2) { const m = median(list); list = list.filter(i => pri(i.source) || i.extracted_price >= Math.max(m * ratio, floor || 0)); }   // drop prices far below the median
   const by = new Map();
   list.forEach(i => { const c = by.get(i.source); if (!c || i.extracted_price < c.extracted_price) by.set(i.source, i); });
   const link = i => { const l = String(i.link || i.product_link || ''); return l.startsWith('https://') ? l : ''; };
-  return [...by.values()].sort((a, b) => a.extracted_price - b.extracted_price || amz(b.source) - amz(a.source)).slice(0, max).map(i => ({ store: String(i.source).slice(0, 40), price: Math.round(i.extracted_price),
+  return keepTop([...by.values()].sort(rank), max, i => i.source).map(i => ({ store: String(i.source).slice(0, 40), price: Math.round(i.extracted_price),
     title: String(i.title || '').slice(0, 120), link: link(i), direct: isDirect(link(i)), token: String(i.immersive_product_page_token || ''), delivery: String(i.delivery || '').slice(0, 40), cond: cond(i) }));
 }
 // Category (from the AI, or guessed from the words) sets a minimum plausible price, so accessories such as skins, cases or
@@ -58,6 +66,7 @@ function matches(title, q, checkVariants) {
 }
 // Result: { offers: new listings (cheapest per store), used: used/refurbished listings, img, relaxed, checkedAt }
 function build(items, q, category) {
+  if (process.env.DEBUG_STORES) console.log('stores from Google:', [...new Set(items.map(i => i.source))].join(', '));
   const cat = category || guessCategory(q), floor = FLOOR[cat] || 0, big = ['phone', 'laptop', 'tv'].includes(cat);
   const wantsAcc = /case|cover|charger|cable|protector/i.test(q), toks = norm(q).split(' ').filter(Boolean);
   let ok = items.filter(i => typeof i.extracted_price === 'number' && i.extracted_price >= Math.max(1, floor) && i.source && (wantsAcc || !isAcc(String(i.title || ''))));
@@ -68,7 +77,7 @@ function build(items, q, category) {
   const relaxed = !strict.length && ok.length > 0 && !big;   // phones, laptops and TVs: no "close match", only the exact model
   if (strict.length) ok = strict; else if (big) ok = [];
   let isNew = ok.filter(i => cond(i) === 'New'); const old = ok.filter(i => cond(i) !== 'New');
-  if (big && isNew.length > 1) { const mx = Math.max(...isNew.map(i => i.extracted_price)); isNew = isNew.filter(i => i.extracted_price >= mx * 0.4); }   // far cheaper than the rest = suspicious
+  if (big && isNew.length > 1) { const mx = Math.max(...isNew.map(i => i.extracted_price)); isNew = isNew.filter(i => pri(i.source) || i.extracted_price >= mx * 0.4); }   // far cheaper than the rest = suspicious
   const offers = cheapestPerStore(isNew, 0.5, 0, 6), usedFloor = Math.max(floor, offers.length ? median(isNew) * 0.2 : 0);
   const used = cheapestPerStore(old, 0.3, usedFloor, 5);
   const th = (ok.find(i => String(i.thumbnail || '').startsWith('https://')) || {}).thumbnail || '';
@@ -99,8 +108,30 @@ async function resolveDirect(list, max = 8) {
       merged.set(key, { store: String(s.name).slice(0, 40), price: Math.round(price), title: (cur && cur.title) || String(pr.title || first.title).slice(0, 120),
         link: s.link, direct: true, token: '', delivery: String(s.shipping || (cur && cur.delivery) || '').slice(0, 40), cond: first.cond });
     });
-    return { credits: 1, list: [...merged.values()].sort((a, b) => a.price - b.price || amz(b.store) - amz(a.store)).slice(0, max) };
+    return { credits: 1, list: keepTop([...merged.values()].sort(rank), max, o => o.store) };
   } catch (e) { console.error('direct links failed:', e.message); return { list, credits: 1 }; }
 }
+// Separate Amazon.in lookup (SerpApi "amazon" engine, 1 credit). Google Shopping in India often leaves Amazon out, so when it is missing
+// we search amazon.in itself, keep only real listings of the exact model, and add the cheapest one to the list.
+async function fetchAmazon(q) {
+  const u = new URL('https://serpapi.com/search.json');
+  Object.entries({ engine: 'amazon', k: q, amazon_domain: 'amazon.in', api_key: process.env.SERPAPI_KEY }).forEach(([k, v]) => u.searchParams.set(k, v));
+  const r = await fetch(u, { signal: AbortSignal.timeout(20000) });
+  if (!r.ok) throw new Error('amazon ' + r.status);
+  return (await r.json()).organic_results || [];
+}
+function pickAmazon(items, q, category, list) {
+  const cat = category || guessCategory(q), floor = FLOOR[cat] || 0, big = ['phone', 'laptop', 'tv'].includes(cat), cv = cat !== 'skincare';
+  const wantsAcc = /case|cover|charger|cable|protector/i.test(q), mx = Math.max(0, ...list.map(o => o.price));
+  const ok = items.filter(i => !i.sponsored && typeof i.extracted_price === 'number' && i.extracted_price >= Math.max(1, floor) && isDirect(String(i.link || ''))
+    && (wantsAcc || !isAcc(String(i.title || ''))) && matches(i.title, q, cv) && (!big || !mx || i.extracted_price >= mx * 0.4));
+  if (cat === 'phone' && ok.some(i => SPEC.test(String(i.title)))) ok.splice(0, ok.length, ...ok.filter(i => SPEC.test(String(i.title))));
+  const best = ok.sort((a, b) => a.extracted_price - b.extracted_price)[0];
+  return best ? { store: 'Amazon.in', price: Math.round(best.extracted_price), title: String(best.title).slice(0, 120), link: best.link, direct: true, token: '', delivery: '', cond: 'New' } : null;
+}
+function addAmazon(list, az, max = 8) {
+  if (!az || list.some(o => pri(o.store) === 2)) return list;
+  return keepTop([...list, az].sort(rank), max, o => o.store);
+}
 const strip = list => list.map(({ token, ...o }) => o);
-module.exports = { norm, fetchShopping, build, resolveDirect, strip, isDirect, guessCategory };
+module.exports = { pri, fetchAmazon, pickAmazon, addAmazon, norm, fetchShopping, build, resolveDirect, strip, isDirect, guessCategory };
